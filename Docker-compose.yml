@@ -1,0 +1,39 @@
+version: "3"
+services:
+  php:
+    build: .
+    restart: always
+    volumes:
+      - ./:/var/www/html
+      - . :/usr/local/etc/php/conf.d/local.ini
+    ports:
+      - 80:80
+    depends_on:
+      - mysql
+
+  mysql:
+    image: mysql
+    restart: always
+    volumes:
+      - . :/var/lib/mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: table_db
+      MYSQL_USER: db_user
+      MYSQL_PASSWORD: db_pass
+    ports:
+      - 3306:3306
+
+  phpmyadmin:
+    image: phpmyadmin
+    restart: always
+    ports:
+      - 8081:80
+    environment:
+      PMA_HOST: mysql
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_USER: carto_user
+      MYSQL_PASSWORD: carto_pass
+      MYSQL_DATABASE: carto_db
+    depends_on:
+      - mysql

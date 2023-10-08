@@ -1,0 +1,8 @@
+# Serveur Files
+. /
+
+# MacOs
+.DS_Store
+
+# JetBrains
+.idea/
