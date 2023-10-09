@@ -1,0 +1,10 @@
+# git
+.git
+# composer
+vendor
+# node
+node_modules
+
+# mac
+.ds_store
+

@@ -1,0 +1,12 @@
+# Serveur Files
+. /
+
+# MacOs
+.DS_Store
+
+# JetBrains
+.idea/
+
+node_modules/
+
+assets/model3d/spartan.glb
